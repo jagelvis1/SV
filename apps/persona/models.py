@@ -1,18 +1,13 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from __future__ import absolute_import
 
 from django.db import models
-
-# Create your models here.
-class tipo_documento(models.Model):
-    id_tipodoc = models.AutoField(primary_key=True)
-    name_tipodoc = models.CharField(max_length=1)  
 
 class cliente(models.Model):
     id_cliente = models.AutoField(primary_key=True)
     tipo_cliente = models.CharField(max_length=13)
     nombre_cliente = models.CharField(max_length=100)
-    tipo_doc = models.ForeignKey(tipo_documento, null=True, blank=True, on_delete=models.CASCADE)
+    tipo_documento = models.CharField(max_length=1)  
     num_documento = models.IntegerField()
     direccion = models.TextField()
     telefono = models.CharField(max_length=13)

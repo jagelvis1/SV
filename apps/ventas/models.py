@@ -2,7 +2,7 @@
 from __future__ import absolute_import
 from django.contrib.auth.models import User
 from django.db import models
-from apps.persona.models import tipo_documento, cliente
+from apps.persona.models import cliente
 
 # Create your models here.
 #class factura
