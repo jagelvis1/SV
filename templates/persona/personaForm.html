@@ -1,0 +1,75 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<form method="POST" autocomplete="off">
+    {% csrf_token %}
+    <div class="row">  
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label for="tipo_cliente">tipo de cliente</label>
+                <select name="tipo_cliente" class="form-control">
+                    <option value="NATURAL">NATURAL</option>
+                    <option value="JURIDICA">JURIDICA</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label for="nombre_cliente">cliente</label>
+                {{form.nombre_cliente}}
+            </div>
+        </div>  
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-6">
+            <div class="form-group">
+                <label>tipo doc.</label>
+                <select name="tipo_documento" class="form-control">
+                    <option value="V">V</option>
+                    <option value="E">E</option>
+                    <option value="J">J</option>
+                    <option value="P">P</option>
+                    <option value="G">G</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <div class="form-group">
+                <label for="num_documento"> Nro. RIF</label>
+                {{form.num_documento}}
+            </div>
+        </div>  
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                {{form.direccion}}
+            </div>
+        </div>  
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                {{form.telefono}}
+            </div>
+        </div> 
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label for="correo">Correo</label>
+                {{form.correo}}
+            </div>
+        </div> 
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label>Estatus</label>
+                <select name="estatus" class="form-control">
+                    <option value="ACTIVO">ACTIVO</option>
+                    <option value="INACTIVO">INACTIVO</option>
+                </select>    
+            </div>
+        </div>
+    </div>                                
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <button class="btn btn-danger" type="reset">Cancelar</button>
+            </div>
+        </div>
+</form>
+{% endblock %}
