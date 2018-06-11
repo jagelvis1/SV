@@ -3,8 +3,43 @@
 {% block content %}
 <form method="POST" autocomplete="off">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Guardar</button>
-    <button type="reset" class="btn btn-danger">Cancelar</button>
+    <div class="row">  
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label for="tipo_cliente">tipo cliente</label>
+                {{form.tipo_cliente}}
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label for="tipo_cliente">cliente</label>
+                {{form.nombre_cliente}}
+            </div>
+        </div>  
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label for="nombre_cliente">cliente</label>
+                {{form.nombre_cliente}}
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label for="nombre_cliente">cliente</label>
+                    {{form.nombre_cliente}}
+            </div>
+        </div>  
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label for="nombre_cliente">cliente</label>
+                    {{form.nombre_cliente}}
+                </div>
+            </div>                            
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Guardar</button>
+            <button class="btn btn-danger" type="reset">Cancelar</button>
+        </div>
+    </div>
 </form>
 {% endblock %}

@@ -32,7 +32,7 @@ class personaForm(forms.ModelForm):
 
         widgets = {
             'tipo_cliente': forms.Select(attrs={'class':'form-control'}),
-            'nombre_cliente': forms.TextInput(attrs={'class':'form-control'}),
+            'nombre_cliente': forms.TextInput(attrs={'class':'form-control','required':'required','placeholder':'cliente','id':'nombre_cliente'}),
             'tipo_documento': forms.Select(attrs={'class':'form-control'}),
             'num_documento': forms.TextInput(attrs={'class':'form-control'}),
             'direccion': forms.Textarea(attrs={'class':'form-control'}),
