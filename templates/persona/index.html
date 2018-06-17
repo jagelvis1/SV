@@ -1,5 +1,43 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h4>contenido de app persona</h4>
+<div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+          <h3>Listado de Clientes <a href="cliente/create"><button class="btn btn-success">Nuevo</button></a></h3>
+          @include('ventas.cliente.search')
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="table-responsive">
+            <table class="table table-striped tabled-bordered tabled-condesed table-hover">
+              <thead>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Tipo Doc.</th>
+                <th>Cédula / RIF</th>
+                <th>Teléfono</th>
+                <th>E-mail</th>
+                <th>Opciones</th>
+              </thead>
+              @foreach ($personas as $pers)
+              <tr>
+                <td>{{$pers->idpersona}}</td>
+                <td>{{$pers->nombre}}</td>
+                <td>{{$pers->tipo_documento}}</td>
+                <td>{{$pers->num_documento}}</td>
+                <td>{{$pers->telefono}}</td>
+                <td>{{$pers->email}}</td>
+                <td>
+                  <a href="{{URL::action('ClienteController@edit',$pers->idpersona)}}"><button class="btn btn-info">Editar</button></a>
+                  <a href="" data-target="#modal-delete-{{$pers->idpersona}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+                </td>
+              </tr>
+              @include('ventas.cliente.modal')
+              @endforeach
+            </table>
+          </div>
+          {{$personas->render()}}  
+        </div>
+    </div>
 {% endblock %}

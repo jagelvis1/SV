@@ -1,7 +1,9 @@
+
+# -*- coding: utf-8 -*-
+
 from __future__ import absolute_import
 from django import forms
 from apps.persona.models import cliente
-
 
 class personaForm(forms.ModelForm):
 
@@ -32,11 +34,11 @@ class personaForm(forms.ModelForm):
 
         widgets = {
             'tipo_cliente': forms.Select(attrs={'class':'form-control'}),
-            'nombre_cliente': forms.TextInput(attrs={'class':'form-control','required':'required','placeholder':'cliente','id':'nombre_cliente'}),
+            'nombre_cliente': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'cliente','id':'nombre_cliente'}),
             'tipo_documento': forms.Select(attrs={'class':'form-control'}),
-            'num_documento': forms.TextInput(attrs={'class':'form-control'}),
-            'direccion': forms.Textarea(attrs={'class':'form-control'}),
-            'telefono': forms.TextInput(attrs={'class':'form-control'}),
-            'correo': forms.TextInput(attrs={'class':'form-control'}),
+            'num_documento': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Nro. RIF','id':'num_documento'}),
+            'direccion': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Dirección','id':'direccion'}),
+            'telefono': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Teléfono','id':'telefono'}),
+            'correo': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Correo','id':'correo'}),
             'estatus': forms.Select(attrs={'class':'form-control'}),
         }
