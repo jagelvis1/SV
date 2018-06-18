@@ -3,8 +3,7 @@
 {% block content %}
 <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-          <h3>Listado de Clientes <a href="cliente/create"><button class="btn btn-success">Nuevo</button></a></h3>
-          @include('ventas.cliente.search')
+          <h3>Listado de Clientes <a href="/persona/nuevo"><button class="btn btn-success">Nuevo</button></a></h3>
         </div>
     </div>
     <div class="row">
@@ -14,30 +13,31 @@
               <thead>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Tipo Doc.</th>
-                <th>Cédula / RIF</th>
+                <th>RIF</th>
                 <th>Teléfono</th>
                 <th>E-mail</th>
                 <th>Opciones</th>
               </thead>
-              @foreach ($personas as $pers)
+             {% if persona %}
+             {% for pers in persona %}
               <tr>
-                <td>{{$pers->idpersona}}</td>
-                <td>{{$pers->nombre}}</td>
-                <td>{{$pers->tipo_documento}}</td>
-                <td>{{$pers->num_documento}}</td>
-                <td>{{$pers->telefono}}</td>
-                <td>{{$pers->email}}</td>
+                <td>{{ pers.id_cliente }}</td>
+                <td>{{ pers.nombre_cliente }}</td>
+                <td>{{ pers.tipo_documento }} - {{ pers.num_documento }}</td>
+                <td>{{ pers.telefono }}</td>
+                <td>{{ pers.correo }}</td>
                 <td>
-                  <a href="{{URL::action('ClienteController@edit',$pers->idpersona)}}"><button class="btn btn-info">Editar</button></a>
-                  <a href="" data-target="#modal-delete-{{$pers->idpersona}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+                  <a href="/persona/editar/{{ pers.id_cliente }}"><button class="btn btn-warning">Editar</button></a>
+                  <a href="/persona/eliminar/{{ pers.id_cliente }}" data-target="#modal-delete-{{ pers.id_cliente }}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
                 </td>
               </tr>
-              @include('ventas.cliente.modal')
-              @endforeach
+              {% include 'persona/personaDelete.html' %}
+              {% endfor %}
+              {% else %}
+              <h1> No hay registros de clientes</h1>
+              {% endif %}
             </table>
           </div>
-          {{$personas->render()}}  
         </div>
     </div>
 {% endblock %}
