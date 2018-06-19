@@ -1,9 +1,9 @@
+
 # -*- coding: utf-8 -*-
 
 from __future__ import absolute_import
 from django import forms
 from apps.persona.models import cliente
-
 
 class personaForm(forms.ModelForm):
 
@@ -40,5 +40,5 @@ class personaForm(forms.ModelForm):
             'direccion': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Dirección','id':'direccion'}),
             'telefono': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Teléfono','id':'telefono'}),
             'correo': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Correo','id':'correo'}),
-            'estatus': forms.Select(attrs={'class':'form-control'}),
+            'estatus': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Correo','id':'estatus','value':'ACTIVO','type':'hidden'}),
         }

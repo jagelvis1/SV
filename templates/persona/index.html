@@ -27,7 +27,7 @@
                 <td>{{ pers.correo }}</td>
                 <td>
                   <a href="/persona/editar/{{ pers.id_cliente }}"><button class="btn btn-warning">Editar</button></a>
-                  <a href="/persona/eliminar/{{ pers.id_cliente }}" data-target="#modal-delete-{{ pers.id_cliente }}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+                  <a href="" data-target="#modal-delete-{{ pers.id_cliente }}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
                 </td>
               </tr>
               {% include 'persona/personaDelete.html' %}
