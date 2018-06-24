@@ -37,8 +37,8 @@ class personaForm(forms.ModelForm):
             'nombre_cliente': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'cliente','id':'nombre_cliente'}),
             'tipo_documento': forms.Select(attrs={'class':'form-control'}),
             'num_documento': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Nro. RIF','id':'num_documento'}),
-            'direccion': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Dirección','id':'direccion'}),
-            'telefono': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Teléfono','id':'telefono'}),
+            'direccion': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Direccion','id':'direccion'}),
+            'telefono': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Telefono','id':'telefono'}),
             'correo': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Correo','id':'correo'}),
-            'estatus': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Correo','id':'estatus','value':'ACTIVO','type':'hidden'}),
+            'estatus': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Estatus','id':'estatus','value':'ACTIVO','type':'hidden'}),
         }

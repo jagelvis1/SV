@@ -26,10 +26,12 @@
                 <td>{{ pers.tipo_documento }} - {{ pers.num_documento }}</td>
                 <td>{{ pers.correo }}</td>
                 <td>
-                  <a href="/persona/editar/{{ pers.id_cliente }}"><button class="btn btn-warning">Editar</button></a>
+                  <a href="{% url 'persona:personaEdit' pers.id_cliente %}"><button class="btn btn-warning">Editar</button></a>
+                  <a href="" data-target="#modal-detalle-{{ pers.id_cliente }}" data-toggle="modal"><button class="btn btn-info">Detalle</button></a>
                   <a href="" data-target="#modal-delete-{{ pers.id_cliente }}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
                 </td>
               </tr>
+              {% include 'persona/personaDetalle.html' %}
               {% include 'persona/personaDelete.html' %}
               {% endfor %}
               {% else %}
