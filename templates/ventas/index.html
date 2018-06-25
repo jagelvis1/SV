@@ -1,1 +1,41 @@
-<h1>app venta</h1>
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+          <h3>Listado de Ventas <a href="/ventas/nuevo"><button class="btn btn-success">Nuevo</button></a></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="table-responsive">
+            <table class="table table-striped tabled-bordered tabled-condesed table-hover">
+              <thead>
+                <th>N° Factura</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Opciones</th>
+              </thead>
+             {% if object_list %}
+             {% for vent in object_list %}
+              <tr>
+                <td>{{ vent.nro_factura }}</td>
+                <td>{{ vent.cliente }}</td>
+                <td>{{ vent.fecha }}</td>
+                <td>
+                  <a href="{% url 'ventas:ventaEdit' vent.nro_factura %}"><button class="btn btn-warning">Editar</button></a>
+                  <a href="" data-target="#modal-detalle-{{ pers.id_cliente }}" data-toggle="modal"><button class="btn btn-info">Detalle</button></a>
+                  <a href="" data-target="#modal-delete-{{ pers.id_cliente }}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+                </td>
+              </tr>
+              {% include 'ventas/ventaDetalle.html' %}
+              {% include 'ventas/ventaDelete.html' %}
+              {% endfor %}
+              {% else %}
+              <h1> No hay registros de clientes</h1>
+              {% endif %}
+            </table>
+          </div>
+        </div>
+    </div>
+{% endblock %}
