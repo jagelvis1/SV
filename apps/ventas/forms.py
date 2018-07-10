@@ -4,9 +4,12 @@ from __future__ import absolute_import
 from django import forms
 from apps.ventas.models import factura, detalle_factura
 from apps.persona.models import cliente
+from django.forms import formset_factory
 
 
 class FacturaForm(forms.ModelForm):
+
+    #cliente = forms.ModelChoiceField(queryset=cliente.objects.all()
 
     class Meta:
         model = factura
@@ -30,7 +33,7 @@ class FacturaForm(forms.ModelForm):
         }
 
         widgets = {
-            'cliente': forms.Select(attrs={'class':'form-control'}),
+            'cliente': forms.Select(attrs={'class':'form-control selectpicker','data-live-search':'true','name':'cliente_id','id':'cliente_id'}),
             'sub_total': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Sub Total','id':'sub_total'}),
             'iva': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'IVA','id':'iva'}),
             'total': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Total','id':'total'}),
@@ -63,3 +66,5 @@ class Detalle_FacturaForm(forms.ModelForm):
             'total': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Total','id':'total'}),
             'estatus': forms.TextInput(attrs={'class':'form-control','required':'true','placeholder':'Estatus','id':'estatus','value':'ACTIVO','type':'hidden'}),
         }        
+
+Detalle_FacturaFormSet = formset_factory(Detalle_FacturaForm)        

@@ -7,7 +7,8 @@ from apps.ventas.forms import FacturaForm, Detalle_FacturaForm
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView
 from apps.ventas.models import factura, detalle_factura
-
+from apps.persona.views import personaList
+from django.forms import formset_factory
 
 
 # Create your views here.
@@ -16,16 +17,19 @@ def index_ventas(request):
 
 class FacturaList(ListView):
     context_object_name = "factura"
-    queryset = factura.objects.raw("SELECT * FROM ventas_factura where estatus='ACTIVO' order by nro_factura")
+    queryset = factura.objects.raw("SELECT * FROM ventas_factura as v, persona_cliente as p where v.estatus='ACTIVO' order by v.nro_factura")
     template_name = "ventas/index.html"
 
 class FacturaCreate(CreateView):
     model = factura
     template_name = 'ventas/ventaForm.html'
+    context_object_name = "factura"
+    queryset = factura.objects.raw("SELECT * FROM ventas_factura as v, persona_cliente as p where p.estatus='ACTIVO' order by p.id_cliente")    
     form_class = FacturaForm
     second_form_class = Detalle_FacturaForm
     success_url = reverse_lazy('ventas:ventaList')
 
+  
     def get_context_data(self,**kwargs):
         context = super(FacturaCreate,self).get_context_data(**kwargs)
         if 'form1' not in context:

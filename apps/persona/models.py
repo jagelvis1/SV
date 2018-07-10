@@ -14,5 +14,7 @@ class cliente(models.Model):
     correo = models.CharField(max_length=200)
     estatus = models.CharField(max_length=8)
 
-   # def __unicode__(self):
-    #    return '{}'.format(self.tipo_cliente,self.tipo_documento,self.estatus)
+    def __unicode__(self):
+        return "%s (%s) - [%s - %s]" % (
+            self.id_cliente, self.nombre_cliente
+        )

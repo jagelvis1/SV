@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.persona',
     'apps.ventas',
+    'django_markdown',
   
 ]
 
