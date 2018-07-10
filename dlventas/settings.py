@@ -25,7 +25,7 @@ SECRET_KEY = 'w$r!*6e6%$t@-vq-ikgt=z5hs2o&6a#vkd-46e5sx_z-ani&22'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.0.32.43', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.persona',
     'apps.ventas',
+    'django_markdown',
   
 ]
 

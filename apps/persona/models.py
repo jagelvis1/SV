@@ -13,3 +13,6 @@ class cliente(models.Model):
     telefono = models.CharField(max_length=13)
     correo = models.CharField(max_length=200)
     estatus = models.CharField(max_length=8)
+
+    def __unicode__(self):
+        return self.nombre_cliente

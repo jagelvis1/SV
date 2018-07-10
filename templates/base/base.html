@@ -89,39 +89,15 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header"></li>
-            
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-laptop"></i>
-                <span>Almacén</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href=""><i class="fa fa-circle-o"></i> Artículos</a></li>
-                <li><a href=""><i class="fa fa-circle-o"></i> Categorías</a></li>
-              </ul>
-            </li>
-            
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-th"></i>
-                <span>Compras</span>
-                 <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href=""><i class="fa fa-circle-o"></i> Ingresos</a></li>
-                <li><a href=""><i class="fa fa-circle-o"></i> Proveedores</a></li>
-              </ul>
-            </li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-shopping-cart"></i>
-                <span>Ventas</span>
+                <span>Servicios</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href=""><i class="fa fa-circle-o"></i> Ventas</a></li>
-                <li><a href=""><i class="fa fa-circle-o"></i> Clientes</a></li>
+                <li><a href="{% url 'persona:personaList' %}"><i class="fa fa-circle-o"></i> Clientes</a></li>
+                <li><a href="{% url 'ventas:ventaList' %}"><i class="fa fa-circle-o"></i> Ventas</a></li>
               </ul>
             </li>
                        
@@ -179,12 +155,12 @@
                 <div class="box-body">
                   	<div class="row">
 	                  	<div class="col-md-12">
-    {% endblock %}                    
+                              {% endblock %}                    
 		                          <!--Contenido-->
                               {% block content %}
                               {% endblock %}
 		                          <!--Fin Contenido-->
-    {% block footer %}                           
+                              {% block footer %}                           
                             </div>
                         </div>
 		                    

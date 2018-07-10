@@ -1,0 +1,27 @@
+
+<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1" id="modal-delete-{{ pers.id_cliente }}">
+    <form method="POST" autocomplete="off" action="{% url 'persona:personaDelete' pers.id_cliente %}">
+    {% csrf_token %} 
+    <div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+				<h4 class="modal-title">Eliminar Cliente</h4>
+			</div>
+			<div class="modal-body">
+				<p>¿ Desea eliminar el cliente <b>{{ pers.nombre_cliente }}</b> ?</p> 
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<!-- estatus -->
+					   <input type="hidden" class="form-control" value="INACTIVO" name="estatus"> 
+					</div>
+				</div>                          				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+				<button type="submit" class="btn btn-primary">Aceptar</button>
+			</div>
+		</div>
+	</div>
+    </form>
+</div>

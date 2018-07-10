@@ -7,7 +7,8 @@ from apps.persona.models import cliente
 # Create your models here.
 #class factura
 class factura(models.Model):
-    nro_factura = models.AutoField(primary_key=True)    
+    nro_factura = models.AutoField(primary_key=True)
+    serie_factura = models.CharField(max_length=15)
     cliente = models.ForeignKey(cliente, null=True, blank=True, on_delete=models.CASCADE)
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     fecha = models.DateField()
